@@ -73,7 +73,7 @@ int	add_prime_sum(int n)
 	{
 		if (is_prime(i) == 1)
 			sum += i;
-		++i;
+		i++;
 	}
 	return (sum);
 }
