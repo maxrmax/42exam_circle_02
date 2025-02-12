@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/mring/CIRCLE/02/exam_prep/iteration1/level2/max",
+      "program": "/Users/mring/CIRCLE/02/exam_prep/iteration1/level2/max/build/Debug/outDebug"
+    }
+  ]
+}
