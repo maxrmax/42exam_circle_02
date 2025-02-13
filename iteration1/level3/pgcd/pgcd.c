@@ -50,22 +50,54 @@ int	main(int ac, char **av)
 	printf("\n");
 }
 
-// int gcd(int a, int b) {
-//     while (b != 0) {
-//         int temp = a % b;
-//         a = b;
-//         b = temp;
-//     }
-//     return (a);
+// #include <stdio.h>
+// #include <stdlib.h>
+
+// int	main(int ac, char **av)
+// {
+// 	int	x;
+// 	int	y;
+// 	int	temp;
+
+// 	if (ac == 3)
+// 	{
+// 		x = atoi(av[1]);
+// 		y = atoi(av[2]);
+// 		while (y != 0)
+// 		{
+// 			temp = x % y;
+// 			x = y;
+// 			y = temp;
+// 		}
+// 		printf("%d", x);
+// 	}
+// 	printf("\n");
 // }
 
-// int main(int ac, char **av) {
-//     if (ac == 3) {
-//         int x = atoi(av[1]);
-//         int y = atoi(av[2]);
-//         printf("%d\n", gcd(x, y));
-//     } else {
-//         printf("\n");
-//     }
-//     return (0);
+// int	gcd(int a, int b)
+// {
+// 	int	temp;
+
+// 	while (b != 0)
+// 	{
+// 		temp = a % b;
+// 		a = b;
+// 		b = temp;
+// 	}
+// 	return (a);
+// }
+
+// int	main(int ac, char **av)
+// {
+// 	if (ac == 3)
+// 	{
+// 		int x = atoi(av[1]);
+// 		int y = atoi(av[2]);
+// 		printf("%d\n", gcd(x, y));
+// 	}
+// 	else
+// 	{
+// 		printf("\n");
+// 	}
+// 	return (0);
 // }

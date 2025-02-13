@@ -27,52 +27,57 @@
 
 //   unsigned int    lcm(unsigned int a, unsigned int b);
 
-unsigned int	max(unsigned int a, unsigned int b)
+// Function to compute the GCD using the Euclidean algorithm
+unsigned int	gcd(unsigned int a, unsigned int b)
 {
-	if (a > b)
-		return (a);
-	return (b);
+	unsigned int	temp;
+
+	while (b != 0)
+	{
+		temp = a % b;
+		a = b;
+		b = temp;
+	}
+	return (a);
 }
 
+// // Function to compute the LCM using the formula
+// LCM(a, b) = (a * b) / GCD(a,b)
 unsigned int	lcm(unsigned int a, unsigned int b)
 {
-	unsigned int	n;
-
-	n = max(a, b);
-	while (1)
-	{
-		if (n % a == 0 && n % b == 0)
-			return (n);
-		else
-			n += max(a, b);
-	}
-	return (0);
+	return (a * b) / gcd(a, b);
 }
 
-// // Function to compute the GCD using the Euclidean algorithm
-// unsigned int gcd(unsigned int a, unsigned int b) {
-//     while (b != 0) {
-//         unsigned int temp = a % b;
-//         a = b;
-//         b = temp;
-//     }
-//     return (a);
+// unsigned int	max(unsigned int a, unsigned int b)
+// {
+// 	if (a > b)
+// 		return (a);
+// 	return (b);
 // }
 
-// // Function to compute the LCM using the formula LCM(a, b) = (a * b) / GCD(a,
-		b)
-// unsigned int lcm(unsigned int a, unsigned int b) {
-//     return (a * b) / gcd(a, b);
+// unsigned int	lcm(unsigned int a, unsigned int b)
+// {
+// 	unsigned int	n;
+
+// 	n = max(a, b);
+// 	while (1)
+// 	{
+// 		if (n % a == 0 && n % b == 0)
+// 			return (n);
+// 		else
+// 			n += max(a, b);
+// 	}
+// 	return (0);
 // }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int	main(void)
-{
-	int	x;
-	int	y;
+// int	main(void)
+// {
+// 	int	x;
+// 	int	y;
 
-	x = 177;
-	y = 2173;
-	printf("%d - %d -- %d\n", x, y, lcm(x, y));
-}
+// 	x = 177;
+// 	y = 2173;
+// 	printf("%d - %d -- %d\n", x, y, lcm(x, y));
+// }
