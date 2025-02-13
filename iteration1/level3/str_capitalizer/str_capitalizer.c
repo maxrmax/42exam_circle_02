@@ -23,24 +23,23 @@
 // $> ./str_capitalizer "__SecONd teST A LITtle BiT   Moar comPLEX"
 // "   But... This iS not THAT COMPLEX"
 // "     Okay, this is the last 1239809147801 but not    the least    t"
-//
+
 // __second Test A Little Bit   Moar Complex$
 //    But... This Is Not That Complex$
 //      Okay, This Is The Last 1239809147801 But Not    The Least    T$
-
+//
+//
+//
 #include <unistd.h>
 
 int	main(int ac, char **av)
 {
 	int	i;
 	int	j;
-	int	word;
 
-	word = 0;
-	i = 1;
-	j = 0;
 	if (ac >= 2)
 	{
+		i = 1;
 		while (i < ac)
 		{
 			j = 0;
@@ -48,17 +47,18 @@ int	main(int ac, char **av)
 			{
 				if (av[i][j] >= 'a' && av[i][j] <= 'z' && (av[i][j - 1] == 9
 						|| av[i][j - 1] == 32 || j == 0))
-					av[i][j] = av[i][j] - 32;
+					av[i][j] -= 32;
 				else if (av[i][j] >= 'A' && av[i][j] <= 'Z' && !(av[i][j
 						- 1] == 32 || av[i][j - 1] == 9 || j == 0))
-					av[i][j] = av[i][j] + 32;
+					av[i][j] += 32;
 				write(1, &av[i][j], 1);
 				j++;
 			}
-			i++;
-			if (i < ac)
+			if (av[i][j] == '\0')
 				write(1, "\n", 1);
+			i++;
 		}
 	}
-	write(1, "\n", 1);
+	else
+		write(1, "\n", 1);
 }
