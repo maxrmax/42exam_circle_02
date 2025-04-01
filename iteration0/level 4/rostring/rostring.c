@@ -32,6 +32,7 @@
 // $>./rostring | cat -e
 // $
 // $>
+
 #include <unistd.h>
 
 int	main(int ac, char **av)
@@ -39,38 +40,34 @@ int	main(int ac, char **av)
 	char *str;        // to easier iterate over the string
 	char *word_start; // start of the first word
 	char *word_end;   // end of the first word
-	if (ac > 1) // need more than 1 argument
+	if (ac > 1)       // need more than 1 argument
 	{
 		str = av[1];                        // assign
 		while (*str == ' ' || *str == '\t') // if space or tab, increment
 			str++;
 		word_start = str; // start of the first word
-							// iterate over first word until end
 		while (*str && *str != ' ' && *str != '\t')
-			str++;
+			str++;                          // iterate over first word until end
 		word_end = str;                     // asign position as end of word
 		while (*str == ' ' || *str == '\t') // skip unnecessary spaces/tabs
 			str++;
-		if (*str) // if char pointed to is not \0
+		// as long as char pointed to is not \0
+		while (*str)
+		// if space iterate over it and print a single space,
+		// else write the current char
 		{
-			// as long as char pointed to is not \0
-			while (*str)
-			// if space iterate over it and print a single space,
-			// else write the current char
+			if (*str == ' ' || *str == '\t') // if space or tab in string
 			{
-				if (*str == ' ' || *str == '\t') // if space or tab in string
-				{
-					// as long as space or tab in string, iterate
-					while (*str == ' ' || *str == '\t')
-						str++;
-					if (*str) // if its not \0, print a single space
-						write(1, " ", 1);
-				}
-				else // else write the string
-				{
-					write(1, str, 1);
+				// as long as space or tab in string, iterate
+				while (*str == ' ' || *str == '\t')
 					str++;
-				}
+				if (*str) // if its not \0, print a single space
+					write(1, " ", 1);
+			}
+			else // else write the string
+			{
+				write(1, str, 1);
+				str++;
 			}
 			// write extra space for the first word now at the end
 			write(1, " ", 1);
@@ -83,3 +80,43 @@ int	main(int ac, char **av)
 	}
 	write(1, "\n", 1); // new line cause we like it
 }
+
+// they said to never look back at older code
+// now i know why. i won't correct it though >:D
+
+// int	main(int ac, char **av)
+// {
+// 	int	i;
+// 	int	first_word;
+// 	int	first_word_length;
+
+// 	first_word_length = 0;
+// 	i = 0;
+// 	if (ac >= 2)
+// 	{
+// 		while (av[1][i] == ' ' || av[1][i] == '\t')
+// 			i++;
+// 		first_word = i;
+// 		while (av[1][i] && av[1][i] != ' ' && av[1][i] != '\t')
+// 			i++;
+// 		first_word_length = i - first_word;
+// 		i++;
+// 		while (av[1][i])
+// 		{
+// 			while ((av[1][i] == ' ' || av[1][i] == '\t') && (av[1][i - 1] == ' '
+// 					|| av[1][i - 1] == '\t'))
+// 				i++;
+// 			write(1, &av[1][i], 1);
+// 			i++;
+// 		}
+// 		if (i != 0)
+// 			write(1, " ", 1);
+// 		while (first_word_length > 0)
+// 		{
+// 			write(1, &av[1][first_word], 1);
+// 			first_word++;
+// 			first_word_length--;
+// 		}
+// 	}
+// 	write(1, "\n", 1);
+// }

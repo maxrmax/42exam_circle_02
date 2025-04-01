@@ -15,21 +15,19 @@
 //		character in the string charset and returns a pointer to this character.  If no characters
 //		from charset occur anywhere in s strpbrk() returns NULL.
 
-char	*ft_strpbrk(char *s1, char *s2)
+char	*ft_strpbrk(const char *s1, const char *s2)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	if (!s1 || !s2 || s1[0] == '\0' || s2[0] == '\0')
-		return (0);
 	while (s1[i])
 	{
 		j = 0;
 		while (s2[j])
 		{
 			if (s2[j] == s1[i])
-				return (s1 + i);
+				return ((char *)&s1[i]); // const, cast necessary
 			j++;
 		}
 		i++;
@@ -46,7 +44,7 @@ char	*ft_strpbrk(char *s1, char *s2)
 // 	char	*set;
 
 // 	str = "teststring";
-// 	set = "abcsg";
+// 	set = " "; //< will/should segfault both
 // 	printf("%s\n", ft_strpbrk(str, set));
 // 	printf("%s\n", strpbrk(str, set));
 // }

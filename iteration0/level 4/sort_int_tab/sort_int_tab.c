@@ -16,8 +16,8 @@
 
 void	sort_int_tab(int *tab, unsigned int size)
 {
-	int	i;
-	int	swap;
+	unsigned int	i;
+	int				swap;
 
 	i = 0;
 	while (i < size - 1)

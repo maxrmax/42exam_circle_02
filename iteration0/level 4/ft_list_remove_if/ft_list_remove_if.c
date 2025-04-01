@@ -23,9 +23,6 @@
 // }                   t_list;
 // $>
 
-#include "ft_list.h"
-#include <stdlib.h>
-
 // Why Does Removal Work?
 
 // When you execute *begin_list = (*begin_list)->next,
@@ -46,6 +43,10 @@
 
 // If you would intend to use the removed list element instead
 // of freeing it, we couldn't.
+
+#include "ft_list.h"
+#include <stdlib.h>
+
 void	ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 {
 	t_list	*free_node;

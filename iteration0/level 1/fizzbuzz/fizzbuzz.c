@@ -41,7 +41,6 @@
 // buzz
 // $>
 // ```
-#include <unistd.h>
 
 // void	write_nbr(int number)
 // {
@@ -53,13 +52,20 @@
 // 	write(1, &digit, 1);
 // }
 
+// void	write_nbr(int number)
+// {
+// 	if (number > 9)
+// 		write_nbr(number / 10);
+// 	write(1, &"0123456789"[number % 10], 1);
+// }
+
+#include <unistd.h>
+
 void	write_nbr(int number)
 {
-	char	digit[10] = "0123456789";
-
 	if (number > 9)
 		write_nbr(number / 10);
-	write(1, &digit[number % 10], 1);
+	write(1, &"0123456789"[number % 10], 1);
 }
 
 int	main(void)

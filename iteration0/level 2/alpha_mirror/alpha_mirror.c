@@ -25,6 +25,7 @@
 // $>./alpha_mirror | cat -e
 // $
 // $>
+
 #include <unistd.h>
 
 int	main(int argc, char **argv)

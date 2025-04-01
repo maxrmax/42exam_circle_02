@@ -16,12 +16,14 @@ char	*ft_strdup(char *src)
 	char	*dup;
 	int		i;
 
-	i = 0;
 	if (!src)
 		return (0);
+	i = 0;
 	while (src[i])
 		i++;
 	dup = malloc((i + 1) * sizeof(char));
+	if (!dup)
+		return (NULL);
 	i = 0;
 	while (src[i])
 	{
@@ -37,13 +39,14 @@ char	*ft_strdup(char *src)
 
 // int	main(void)
 // {
-// 	char *str = "kolita";
-// 	char *dup1 = ft_strdup(str);
-// 	char *dup2 = strdup(str);
-// 	printf("%s\n", dup1);
-// 	printf("%s\n", dup2);
-// 	dup1[0] = 'l';
-// 	dup2[0] = 'l';
-// 	printf("%s\n", dup1);
-// 	printf("%s\n", dup2);
+// 	char	*str;
+// 	char	*s2;
+
+// 	str = "test string";
+// 	s2 = strdup(str);
+// 	printf("or: %s\n", s2);
+// 	free(s2);
+// 	s2 = ft_strdup(str);
+// 	printf("ft: %s\n", s2);
+// 	free(s2);
 // }

@@ -12,21 +12,24 @@
 
 void	ft_swap(int *a, int *b)
 {
-	int	tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
+	if (!a || !b)
+		return ;
+	*a ^= *b ^= *a ^= *b;
 }
 
 // #include <stdio.h>
 
 // int	main(void)
 // {
-// 	int x = 420;
-// 	int y = 69;
-// 	int *a = &x;
-// 	int *b = &y;
+// 	int	x;
+// 	int	y;
+// 	int	*a;
+// 	int	*b;
+
+// 	x = 533;
+// 	y = 312;
+// 	a = &x;
+// 	b = &y;
 // 	printf("%d - %d\n", *a, *b);
 // 	ft_swap(a, b);
 // 	printf("%d - %d\n", *a, *b);

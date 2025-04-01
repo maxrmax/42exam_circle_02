@@ -24,20 +24,16 @@ size_t	ft_strspn(const char *s, const char *accept)
 	size_t	i;
 	size_t	j;
 
-	i = 0;
-	if (!s || !accept || s[0] == '\0' || accept[0] == '\0')
+	if (!s || !accept)
 		return (0);
+	i = 0;
 	while (s[i])
 	{
 		j = 0;
-		while (accept[j])
-		{
-			if (accept[j] == s[i])
-				break ;
+		while (accept[j] && s[i] != accept[j])
 			j++;
-		}
-		if (accept[j] == '\0')
-			return (i);
+		if (!accept[j])
+			break ;
 		i++;
 	}
 	return (i);
@@ -51,7 +47,7 @@ size_t	ft_strspn(const char *s, const char *accept)
 // 	char	*set;
 
 // 	str = "1";
-// 	set = "";
+// 	set = "1";
 // 	printf("%zu\n", ft_strspn(str, set));
 // 	printf("%zu\n", strspn(str, set));
 // }

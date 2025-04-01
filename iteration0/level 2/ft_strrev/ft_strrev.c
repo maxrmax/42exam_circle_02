@@ -11,22 +11,25 @@
 
 // char    *ft_strrev(char *str);
 
-// power of XOR bitwise, XOR swap logic, could use temp value instead
 char	*ft_strrev(char *str)
 {
 	int	start;
 	int	end;
 
+	if (!str)
+		return (NULL);
 	end = 0;
-	start = 0;
 	while (str[end])
 		end++;
 	end--;
+	start = 0;
 	while (start < end)
-	{
+	{ // XOR swap (bitwise operation)
 		str[start] ^= str[end] ^= str[start] ^= str[end];
-		// str[end] ^= str[start];
-		// str[start] ^= str[end];
+		// same as:
+		// temp = str[end];
+		// str[end] = str[start];
+		// str[start] = temp;
 		start++;
 		end--;
 	}
